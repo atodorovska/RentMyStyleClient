@@ -2,14 +2,14 @@
 #container {
   color: #fff;
   background-image: url("../../../images/fashion_background.jpg");
-  opacity: 0.2;
+  opacity: 0.3;
   font-family: "Didact Gothic", "sans-serif";
   min-height: 100%;
 }
 
 .login-form {
   position: absolute;
-  top: 10rem;
+  top: 11rem;
   left: 30rem;
   width: 42rem;
   margin: 0 auto;

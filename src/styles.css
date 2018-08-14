@@ -2,3 +2,25 @@ html, body{
   height: 100%;
   margin: 0;
 }
+
+
+#logo_container{
+  position: absolute;
+  top: 0;
+  margin: 1%;
+  width: 15%;
+  transition: 0.3s;
+}
+
+#logo_container:hover{
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+#logo_container span{
+  font-family: 'Poiret One', cursive;
+  color: black;
+  font-size: 1.4em;
+  margin-left: 5%;
+}
+
