@@ -35,26 +35,32 @@ body, html{
 #title{
   position: absolute;
   top: 15rem;
-  margin-left: 15rem;
-  font-size: 2.5em;
+  margin-left: 10rem;
+  font-size: 2.8em;
   font-family: 'Poiret One', cursive;
   font-weight: 700;
 }
 
 #center_of_image{
   position: absolute;
-  top: 25rem;
-  margin-left: 17.5rem;
+  top: 26rem;
+  margin-left: 12.7rem;
 }
 
 #center_of_image div{
-  width: 70rem;
+  width: 80rem;
   text-align: center;
+  font-size: 1.1em;
   font-family: 'Didact Gothic', sans-serif;
 }
 
 #center_of_image button{
   text-align: center;
-  margin-left: 25rem;
+  margin-left: 30.8rem;
   margin-top: 5rem;
+  transition: 0.3s;
+}
+
+#center_of_image button:hover{
+  opacity: 0.7;
 }
