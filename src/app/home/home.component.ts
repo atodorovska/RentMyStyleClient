@@ -16,6 +16,6 @@ export class HomeComponent implements OnInit {
 
   goToSearchView() {
 
-    this.router.navigate(['/search']);
+    this.router.navigate(['/login']);
   }
 }
