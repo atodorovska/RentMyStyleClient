@@ -1,8 +1,11 @@
-
 #container {
   color: #fff;
   background-image: url("../../../images/fashion_background.jpg");
-  opacity: 0.3;
+  height: 82rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.4;
   font-family: "Didact Gothic", "sans-serif";
   min-height: 100%;
 }
@@ -47,7 +50,7 @@
 .login-form form a {
   color: white;
   text-decoration: none;
-  font-size: 1.3em;
+  font-size: 1.2em;
   transition: 0.3s;
 }
 
