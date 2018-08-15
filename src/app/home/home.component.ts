@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import {UsersService} from '../users.service';
+import {User} from '../user';
 
 
 @Component({
@@ -9,13 +11,24 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  user: User;
+
+  constructor(private router: Router,
+              private service: UsersService) { }
 
   ngOnInit() {
+    this.getUser();
+  }
+
+  goToLoginView() {
+    this.router.navigate(['/login']);
   }
 
   goToSearchView() {
+    this.router.navigate(['/search']);
+  }
 
-    this.router.navigate(['/login']);
+  getUser() {
+    this.service.getUser().subscribe(result => this.user = result);
   }
 }

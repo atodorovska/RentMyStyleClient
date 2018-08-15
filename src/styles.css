@@ -24,3 +24,14 @@ html, body{
   margin-left: 5%;
 }
 
+#container {
+  color: #fff;
+  background-image: url("../images/fashion_background.jpg");
+  height: 82rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.4;
+  min-height: 100%;
+}
+

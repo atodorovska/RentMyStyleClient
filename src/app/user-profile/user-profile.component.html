@@ -1,0 +1,17 @@
+<div id="container"></div>
+
+<a href="/home">
+  <div id="logo_container">
+    <img src="fashion_icon.png" height="50px" width="50px">
+    <span>Trade my style</span>
+  </div>
+</a>
+
+<div *ngIf="user" id="user_details">
+  <span id="headUsername">Username: </span> <span id="username">{{user.name}}</span>
+</div>
+
+<div *ngIf="user" id="toLogOut">
+  <a href="/user-profile" id="userlink"><span>{{user.name}}</span></a>
+  <a class="btn btn-primary" href="http://localhost:8080/logout">Log out</a>
+</div>

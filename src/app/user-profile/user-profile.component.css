@@ -1,0 +1,41 @@
+#user_details{
+  position: absolute;
+  top: 10rem;
+  left: 15rem;
+  font-size: 2rem;
+}
+
+#headUsername{
+  font-family: 'Poiret One', cursive;
+}
+
+#username{
+  margin-left: 2rem;
+  font-family: 'Didact Gothic', sans-serif;
+}
+
+#toLogOut{
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  transition: 0.3s;
+}
+
+#toLogOut span{
+  padding-right: 1rem;
+}
+
+#toLogOut span:hover{
+  opacity: 0.7;
+}
+
+#userlink{
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+#userlink:hover{
+  opacity: 0.7;
+}
+
+

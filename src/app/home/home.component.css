@@ -1,9 +1,3 @@
-body, html{
-  height: 100%;
-  margin: 0;
-}
-
-
 #header{
   background-image: url("../../../images/fashion_background.jpg");
   height: 82rem;
@@ -35,13 +29,37 @@ body, html{
   font-family: 'Didact Gothic', sans-serif;
 }
 
-#center_of_image button{
+#center_of_image a{
   text-align: center;
   margin-left: 30.8rem;
   margin-top: 5rem;
   transition: 0.3s;
 }
 
-#center_of_image button:hover{
+#center_of_image a:hover{
+  opacity: 0.7;
+}
+
+#toLogIn, #toLogOut{
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  transition: 0.3s;
+}
+
+#toLogOut span{
+  padding-right: 1rem;
+}
+
+#toLogOut span:hover, #toLogIn span:hover{
+  opacity: 0.7;
+}
+
+#username{
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+#username:hover{
   opacity: 0.7;
 }
