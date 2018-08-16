@@ -7,11 +7,21 @@
   </div>
 </a>
 
-<div *ngIf="user" id="user_details">
-  <span id="headUsername">Username: </span> <span id="username">{{user.name}}</span>
+<div *ngIf="login" id="user_details">
+  <div>
+    <span class="info">Username: </span> <span id="username">{{login.name}}</span>
+  </div>
 </div>
 
-<div *ngIf="user" id="toLogOut">
-  <a href="/user-profile" id="userlink"><span>{{user.name}}</span></a>
+<div *ngIf="login" id="toLogOut">
+  <a href="/user-profile" id="userlink"><span>{{login.name}}</span></a>
   <a class="btn btn-primary" href="http://localhost:8080/logout">Log out</a>
 </div>
+
+<div *ngIf="user" id="items">
+  <span class="info">Items: </span>
+  <ul *ngIf="user.items.length">
+    <li><img *ngFor="let item of user.items" src="/api/files/{{item.image}}"></li>
+  </ul>
+</div>
+

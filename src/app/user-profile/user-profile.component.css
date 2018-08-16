@@ -1,11 +1,21 @@
 #user_details{
   position: absolute;
   top: 10rem;
-  left: 15rem;
+  left: 10rem;
   font-size: 2rem;
 }
 
-#headUsername{
+#user_details div{
+  width: 83.5rem;
+  height: 54.5rem;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  padding: 5rem;
+  position: relative;
+}
+
+.info{
   font-family: 'Poiret One', cursive;
 }
 
@@ -38,4 +48,41 @@
   opacity: 0.7;
 }
 
+#items{
+  position: absolute;
+  top: 20rem;
+  left: 10rem;
+}
 
+#items ul{
+  margin-top: 1rem;
+}
+
+#items ul li{
+  display: inline;
+  float: left;
+}
+
+#items ul li img{
+  max-width: 25rem;
+  max-height: 25rem;
+  border: 2px red solid;
+  border-radius: 10px;
+  margin: 0.5rem;
+}
+
+#items span{
+  position: relative;
+  font-size: 2rem;
+  margin-left: 5rem;
+}
+
+#uploadFile{
+  position: absolute;
+  top: 45rem;
+  left: 15rem;
+}
+
+#uploadFile form input{
+  margin-top: 0.3rem;
+}

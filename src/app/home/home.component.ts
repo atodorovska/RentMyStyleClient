@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {UsersService} from '../users.service';
-import {User} from '../user';
+import {Login} from '../login';
 
 
 @Component({
@@ -11,13 +11,13 @@ import {User} from '../user';
 })
 export class HomeComponent implements OnInit {
 
-  user: User;
+  login: Login;
 
   constructor(private router: Router,
               private service: UsersService) { }
 
   ngOnInit() {
-    this.getUser();
+    this.getLogin();
   }
 
   goToLoginView() {
@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/search']);
   }
 
-  getUser() {
-    this.service.getUser().subscribe(result => this.user = result);
+  getLogin() {
+    this.service.getLogin().subscribe(result => this.login = result);
   }
 }
