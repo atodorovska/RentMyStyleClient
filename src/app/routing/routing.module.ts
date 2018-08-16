@@ -5,6 +5,7 @@ import {HomeComponent} from '../home/home.component';
 import {SearchComponent} from '../search/search.component';
 import {LoginComponent} from '../login/login.component';
 import {UserProfileComponent} from '../user-profile/user-profile.component';
+import {ItemDetailsComponent} from '../item-details/item-details.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'user-profile',
     component: UserProfileComponent
+  },
+  {
+    path: 'item-details/:{item-id}',
+    component: ItemDetailsComponent
   },
   {
     path: '**',
