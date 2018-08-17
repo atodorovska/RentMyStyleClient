@@ -28,24 +28,34 @@
 
 <!-- EVERYTHING UP IS OK -->
 
+<div id="uploadFile">
+  <form method="POST" enctype="multipart/form-data" action="api/file">
+  <h4>Fill item details:</h4><br>
+  <span>Name: </span><input #itemName id="item-name" type="text" name="name" title="item-name" required><br>
+  <span>Brand: </span><input #itemBrand id="item-brand" type="text" name="brand" title="item-brand" required><br>
+  <span>Color: </span><input #itemColor id="item-color" type="text" name="color" title="item-color" required><br>
+  <span>Price: </span><input #itemPrice id="item-price" type="number" name="price" title="item-price" required><br>
+  <span>Size: </span><br>
+  <select #itemSize name="size">
+    <option>XS</option>
+    <option>S</option>
+    <option>M</option>
+    <option>L</option>
+    <option>XL</option>
+  </select><br>
+  <span>Insert photo: <input type="file" title="item-photo" name="file" #itemPhoto></span>
 
-<!--<div id="uploadFile">-->
-  <!--&lt;!&ndash;action="http://localhost:8080/api/items/post" method="post" content='application/json'&ndash;&gt;-->
-  <!--<form enctype="application/json" method="post" action="http://localhost:8080/api/items/post">-->
-    <!--<h4>Fill item details:</h4><br>-->
-    <!--<span>Name: </span><input type="text" name="name" title="item-name" required><br>-->
-    <!--<span>Brand: </span><input type="text" name="brand" title="item-brand"><br>-->
-    <!--<span>Color: </span><input type="text" name="color" title="item-color"><br>-->
-    <!--<span>Price: </span><input type="number" name="price" title="item-price"><br>-->
-    <!--<span>Size: </span><br>-->
-    <!--<select name="size">-->
-      <!--<option>XS</option>-->
-      <!--<option>S</option>-->
-      <!--<option>M</option>-->
-      <!--<option>L</option>-->
-      <!--<option>XL</option>-->
-    <!--</select><br>-->
- <!--&lt;!&ndash;   <span>Insert item's photo: </span><input name="image" type="file" required><br>&ndash;&gt;-->
-    <!--<button class="btn btn-primary" type="submit">Add new item</button>-->
-  <!--</form>-->
-<!--</div>-->
+  <!--<button class="btn btn-primary" (click)="uploadItemPhoto(itemPhoto.value)">Upload photo</button>-->
+
+  <button class="btn btn-primary" (click)="addItem(itemName.value, itemBrand.value,
+   itemColor.value, itemPrice.value, itemSize.value, itemPhoto.value)">Add new item</button>
+  </form>
+</div>
+
+<div id="myForm">
+  <form method="POST" enctype="multipart/form-data" action="api/file">
+    <input type="file" name="file">
+    <input type="submit" value="Upload">
+  </form>
+</div>
+

@@ -20,4 +20,5 @@ export class ItemsService {
   getItem(id: number): Observable<Item> {
     return this.http.get<Item>(`${this.urlItems}/${id}`);
   }
+
 }
