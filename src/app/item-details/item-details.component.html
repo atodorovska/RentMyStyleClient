@@ -1,3 +1,11 @@
-<p>
-  item-details works!
-</p>
+<div id="container"></div>
+
+<div *ngIf="item" id="item">
+  <div><span>Name: </span><span>{{item.name}}</span></div>
+  <div><span>Image: </span><img src="http://localhost:8080/api/files/{{item.image}}"></div>
+  <div><span>Brand: </span><span>{{item.brand}}</span></div>
+  <div><span>Color: </span><span>{{item.color}}</span></div>
+  <div><span>Price: </span><span>{{item.price}}</span></div>
+  <div><span>Size: </span><span>{{item.size}}</span></div>
+  <div><span>Owner: </span><span>OWNER NAME GOES HERE</span></div>
+</div>

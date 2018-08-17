@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {UsersService} from '../users.service';
 import {Login} from '../login';
 import {ItemsService} from '../items.service';
 import {Item} from '../item';
+import {LoginsService} from '../logins.service';
 
 
 @Component({
@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   items: Item[] = [];
 
   constructor(private router: Router,
-              private usersService: UsersService,
+              private loginsService: LoginsService,
               private itemsService: ItemsService) { }
 
   ngOnInit() {
@@ -38,7 +38,7 @@ export class HomeComponent implements OnInit {
   }
 
   getLogin() {
-    this.usersService.getLogin().subscribe(result => this.login = result);
+    this.loginsService.getLogin().subscribe(result => this.login = result);
   }
 
   getItems() {

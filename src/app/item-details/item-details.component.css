@@ -1,0 +1,8 @@
+#item{
+  position: absolute;
+  background: hotpink;
+  top: 20rem;
+  left: 20rem;
+  width: 80rem;
+  height: 45rem;
+}
