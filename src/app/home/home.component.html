@@ -10,7 +10,7 @@
 
 <a href="/home">
   <div id="logo_container">
-    <img src="fashion_icon.png" height="50px" width="50px">
+    <img src="images/fashion_icon.png" height="50px" width="50px">
     <span>Trade my style</span>
   </div>
 </a>
@@ -26,8 +26,9 @@
 </div>
 
 <div id="items">
-  <a (click)="goToItemDetailsView(3)" *ngIf="items[3]"><img src="/api/files/{{items[3].image}}"></a>
-  <a (click)="goToItemDetailsView(4)" *ngIf="items[4]"><img src="/api/files/{{items[4].image}}"></a>
-  <a (click)="goToItemDetailsView(5)" *ngIf="items[5]"><img src="/api/files/{{items[5].image}}"></a>
+  <a (click)="goToItemDetailsView(items[0].id)" *ngIf="items[0]"><img src="http://localhost:8080/api/files/{{items[0].image}}"></a>
+  <a (click)="goToItemDetailsView(items[1].id)" *ngIf="items[1]"><img src="http://localhost:8080/api/files/{{items[1].image}}"></a>
+  <a (click)="goToItemDetailsView(items[2].id)" *ngIf="items[2]"><img src="http://localhost:8080/api/files/{{items[2].image}}"></a>
+  <a (click)="goToItemDetailsView(items[3].id)" *ngIf="items[3]"><img src="http://localhost:8080/api/files/{{items[3].image}}"></a>
 </div>
 

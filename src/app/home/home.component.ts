@@ -13,8 +13,8 @@ import {Item} from '../item';
 })
 export class HomeComponent implements OnInit {
 
-  login: Login;
-  items: Item[];
+  login: Login = null;
+  items: Item[] = [];
 
   constructor(private router: Router,
               private usersService: UsersService,
