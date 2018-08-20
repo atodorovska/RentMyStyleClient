@@ -25,16 +25,21 @@ export class HomeComponent implements OnInit {
     this.getItems();
   }
 
-  goToLoginView() {
-    this.router.navigate(['/login']);
-  }
 
   goToSearchView() {
-    this.router.navigate(['/search']);
+    if (this.login) {
+      this.router.navigate(['/search']);
+    } else {
+      this.router.navigate(['/login']);
+    }
   }
 
   goToItemDetailsView(id: number) {
-    this.router.navigate([`/item-details/${id}`]);
+    if (this.login) {
+      this.router.navigate([`/item-details/${id}`]);
+    } else {
+      this.router.navigate(['/login']);
+    }
   }
 
   getLogin() {

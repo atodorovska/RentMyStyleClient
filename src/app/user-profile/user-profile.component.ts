@@ -3,9 +3,9 @@ import {User} from '../user';
 import {UsersService} from '../users.service';
 import {Login} from '../login';
 import {LoginsService} from '../logins.service';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Item} from "../item";
-import {Observable} from "rxjs";
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Item} from '../item';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-user-profile',
@@ -53,31 +53,39 @@ export class UserProfileComponent implements OnInit {
   }
 
 
-  addItem(itemName : string, itemBrand : string, itemColor : string,
-          itemPrice : string, itemSize : string, itemPhoto: string) {
+  addItem(itemName: string, itemBrand: string, itemColor: string,
+          itemPrice: string, itemSize: string, itemPhoto: string) {
 
+    if (itemName === '' || undefined === itemPhoto) {
+      return;
+    }
 
     console.log(itemPhoto);
-    let parts = itemPhoto.split("\\");
-    let imgAddress = parts[2];
-    console.log("img address: "+imgAddress);
-    //let objBody = {}
+    const parts = itemPhoto.split('\\');
+    const imgAddress = parts[2];
+    console.log('img address: ' + imgAddress);
 
-    this.http.post("api/file","file",this.httpOptionsFile);
+    this.http.post('api/file', 'file', this.httpOptionsFile);
 
-    console.log("ItemName: "+itemName);
-    let objBody = {
-      "name":itemName,
-      "brand":itemBrand,
-      "color":itemColor,
-      "price":itemPrice,
-      "size":itemSize,
-      "image":imgAddress,
-      "owner":this.login.id
+    console.log('ItemName: ' + itemName);
+    const objBody = {
+      'name': itemName,
+      'brand': itemBrand,
+      'color': itemColor,
+      'price': itemPrice,
+      'size': itemSize,
+      'image': imgAddress,
+      'owner': this.login.id
     };
 
-    this.http.post("api/items/post",objBody, this.httpOptionsJson).subscribe();
+    this.http.post('api/items/post', objBody, this.httpOptionsJson).subscribe();
   }
 
+  openForm() {
+    document.getElementById('uploadFile').style.display = 'block';
+  }
 
+  closeForm() {
+    document.getElementById('uploadFile').style.display = 'none';
+  }
 }

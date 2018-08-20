@@ -9,7 +9,20 @@
 
 <div *ngIf="login" id="user_details">
   <div>
+    <button class="open-button btn btn-primary" (click)="openForm()">Add new item</button>
     <span class="info">Username: </span> <span id="username">{{login.name}}</span>
+
+    <div *ngIf="user" id="items">
+      <span class="info">Items: </span>
+      <ul *ngIf="user.items.length">
+        <li *ngFor="let item of user.items">
+          <a routerLink="/item-details/{{item.id}}">
+            <img  src="/api/files/{{item.image}}">
+          </a>
+        </li>
+      </ul>
+    </div>
+
   </div>
 </div>
 
@@ -18,44 +31,38 @@
   <a class="btn btn-primary" href="http://localhost:8080/logout">Log out</a>
 </div>
 
-<div *ngIf="user" id="items">
-  <span class="info">Items: </span>
-  <ul *ngIf="user.items.length">
-    <li><img *ngFor="let item of user.items" src="/api/files/{{item.image}}"></li>
-  </ul>
-</div>
 
-
-<!-- EVERYTHING UP IS OK -->
-
-<div id="uploadFile">
+<div id="uploadFile" class="form-popup">
   <form method="POST" enctype="multipart/form-data" action="api/file">
-  <h4>Fill item details:</h4><br>
-  <span>Name: </span><input #itemName id="item-name" type="text" name="name" title="item-name" required><br>
-  <span>Brand: </span><input #itemBrand id="item-brand" type="text" name="brand" title="item-brand" required><br>
-  <span>Color: </span><input #itemColor id="item-color" type="text" name="color" title="item-color" required><br>
-  <span>Price: </span><input #itemPrice id="item-price" type="number" name="price" title="item-price" required><br>
-  <span>Size: </span><br>
-  <select #itemSize name="size">
-    <option>XS</option>
-    <option>S</option>
-    <option>M</option>
-    <option>L</option>
-    <option>XL</option>
-  </select><br>
-  <span>Insert photo: <input type="file" title="item-photo" name="file" #itemPhoto></span>
+    <p class="close" (click)="closeForm()">&times;</p>
+    <p id="formTitle">Fill item details</p>
+    <hr>
+    <label>Name
+      <input #itemName id="item-name" type="text" name="name" placeholder="Name" required>
+    </label>
+    <label>Brand
+      <input #itemBrand id="item-brand" type="text" name="brand" placeholder="Brand" required>
+    </label>
+    <label>Color
+      <input #itemColor id="item-color" type="text" name="color" placeholder="Color" required>
+    </label>
+    <label>Price
+      <input #itemPrice id="item-price" type="number" name="price" placeholder="Price in MKD" required>
+    </label>
+    <label>Size
+      <select #itemSize name="size">
+        <option>XS</option>
+        <option>S</option>
+        <option>M</option>
+        <option>L</option>
+        <option>XL</option>
+      </select></label>
+    <label>Insert photo
+      <input type="file" title="item-photo" name="file" #itemPhoto>
+    </label>
 
-  <!--<button class="btn btn-primary" (click)="uploadItemPhoto(itemPhoto.value)">Upload photo</button>-->
-
-  <button class="btn btn-primary" (click)="addItem(itemName.value, itemBrand.value,
-   itemColor.value, itemPrice.value, itemSize.value, itemPhoto.value)">Add new item</button>
-  </form>
-</div>
-
-<div id="myForm">
-  <form method="POST" enctype="multipart/form-data" action="api/file">
-    <input type="file" name="file">
-    <input type="submit" value="Upload">
+    <button class="btn btn-primary" (click)="addItem(itemName.value, itemBrand.value,
+   itemColor.value, itemPrice.value, itemSize.value, itemPhoto.value)">Add</button>
   </form>
 </div>
 

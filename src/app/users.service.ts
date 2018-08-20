@@ -16,7 +16,7 @@ export class UsersService {
   constructor(private http: HttpClient) { }
 
   getUser(user: string): Observable<User> {
-    return this.http.get<any>(`${this.urlUser}${user}`).pipe(map(obj => new User(obj.id, obj.name, obj.itemsToGive)));
+    return this.http.get<any>(`${this.urlUser}${user}`).pipe(map(obj => new User(obj.id, obj.name, obj.itemsToGive, obj.reviewsForUser)));
   }
 
 }
