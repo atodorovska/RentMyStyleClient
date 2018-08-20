@@ -13,6 +13,13 @@
     <span class="info">User: </span> <span id="username">{{userToReview.name}}</span>
     <h3 class="info">Reviews </h3><hr>
 
+    <div *ngIf="userToReview" id="reviews">
+      <ul *ngIf="userToReview.reviews.length">
+        <li *ngFor="let review of userToReview.reviews">
+         <p>{{review.description}}</p>
+        </li>
+      </ul>
+    </div>
 
   </div>
 </div>
@@ -26,7 +33,7 @@
 
 
 <div id="uploadReview" class="form-popup">
-  <form method="POST" action="api/reviews/post">
+  <form>
     <p class="close" (click)="closeForm()">&times;</p>
     <p id="reviewTitle">Write a review for this user</p>
     <hr>
