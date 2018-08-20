@@ -17,6 +17,22 @@ export class ItemsService {
     return this.http.get<Item[]>(`${this.urlItems}/all`);
   }
 
+  getItemsByBrand(brand: string): Observable<Item[]> {
+    return this.http.get<Item[]>(`${this.urlItems}/all/brand/${brand}`);
+  }
+
+  getItemsByColor(color: string): Observable<Item[]> {
+    return this.http.get<Item[]>(`${this.urlItems}/all/color/${color}`);
+  }
+
+  getItemsBySize(size: string): Observable<Item[]> {
+    return this.http.get<Item[]>(`${this.urlItems}/all/size/${size}`);
+  }
+
+  getItemsByPrice(price: number): Observable<Item[]> {
+    return this.http.get<Item[]>(`${this.urlItems}/all/price/${price}`);
+  }
+
   getItem(id: number): Observable<Item> {
     return this.http.get<Item>(`${this.urlItems}/${id}`);
   }
