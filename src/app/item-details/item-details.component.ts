@@ -51,4 +51,8 @@ export class ItemDetailsComponent implements OnInit {
     this.loginsService.getLogin().subscribe(result => this.login = result);
   }
 
+  getThisItem() {
+    alert('You have gotten the item succesfully!');
+  }
+
 }
