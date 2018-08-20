@@ -6,6 +6,7 @@ import {UsersService} from '../users.service';
 import {ActivatedRoute} from '@angular/router';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 
+
 @Component({
   selector: 'app-user-details',
   templateUrl: './user-details.component.html',
@@ -16,6 +17,7 @@ export class UserDetailsComponent implements OnInit {
   login: Login;
   user: User;
   userToReview: User;
+  authorName: string;
 
   httpOptionsJson = {
     headers: new HttpHeaders({
@@ -24,7 +26,7 @@ export class UserDetailsComponent implements OnInit {
     })
   };
 
-  constructor(private loginsSerivce: LoginsService,
+  constructor(private loginsService: LoginsService,
               private usersService: UsersService,
               private route: ActivatedRoute,
               private http: HttpClient) {}
@@ -35,7 +37,7 @@ export class UserDetailsComponent implements OnInit {
   }
 
   getLogin() {
-    this.loginsSerivce.getLogin().subscribe(res => {
+    this.loginsService.getLogin().subscribe(res => {
       this.login = res;
       this.getUser();
     });
@@ -45,8 +47,13 @@ export class UserDetailsComponent implements OnInit {
     this.usersService.getUser(this.login.id).subscribe(res => this.user = res);
   }
 
-  getUserToReview() {
+  getAuthorName(id:string){
+    console.log("ok");
+    this.usersService.getUser(id).subscribe(res => this.authorName = res.name);
+  }
 
+  getUserToReview() {
+    console.log("getting userToReview..")
     this.route.paramMap.subscribe(result => {
       const id = result.get('id');
       this.usersService.getUser(id).subscribe(user => {

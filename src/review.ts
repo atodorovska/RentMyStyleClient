@@ -12,4 +12,5 @@ export class Review {
     this.author = author;
     this.userAbout = userAbout;
   }
+
 }

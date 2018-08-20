@@ -1,7 +1,55 @@
-<div *ngIf="login" id="user_details">
+<div id="container"></div>
+
+<a href="/home">
+  <div id="logo_container">
+    <img src="fashion_icon.png" height="50px" width="50px">
+    <span>Trade my style</span>
+  </div>
+</a>
+
+<div *ngIf="login" id="toLogOut">
+  <a href="/user-profile" id="username"><span>{{login.name}}</span></a>
+  <a class="btn btn-primary" href="http://localhost:8080/logout">Log out</a>
+</div>
+
+<div id="search_bar">
+  <p class="info">Browse items</p>
+  <label>Brand
+    <input type="text" #itemBrand id="brand" name="brand" placeholder="Bershka, H&M, Zara..">
+  </label>
+  <label>Color<br>
+    <i (click)="getByColor('red')" class="red fas fa-circle"></i>
+    <i (click)="getByColor('navy')" class="navy fas fa-circle"></i>
+    <i (click)="getByColor('yellow')" class="yellow fas fa-circle"></i>
+    <i (click)="getByColor('white')" class="white fas fa-circle"></i>
+    <i (click)="getByColor('blue')" class="blue fas fa-circle"></i>
+    <i (click)="getByColor('green')" class="green fas fa-circle"></i>
+    <i (click)="getByColor('orange')" class="orange fas fa-circle"></i>
+    <i (click)="getByColor('brown')" class="brown fas fa-circle"></i>
+    <i (click)="getByColor('purple')" class="purple fas fa-circle"></i>
+   <i (click)="getByColor('black')" class="black fas fa-circle"></i>
+  </label>
+  <label>Size
+    <select #itemSize id="size" name="size">
+      <option>XS</option>
+      <option>S</option>
+      <option>M</option>
+      <option>L</option>
+      <option>XL</option>
+    </select></label>
+
+  <div class="slidecontainer">
+  <input [(ngModel)]="price" type="range" min="0" max="5000" value="2500" class="slider" id="myRange">
+  <p class="price">Price: <span id="demo">{{price}} MKD</span></p>
+  </div>
+
+  <button class="search btn btn-primary" (click)="search(itemBrand.value,itemSize.value)">Search</button>
+
+</div>
+
+<div *ngIf="login" id="search_results">
   <div>
     <div id="items">
-      <span class="info">Items: </span>
       <ul *ngIf="items.length">
         <li *ngFor="let item of items">
           <a routerLink="/item-details/{{item.id}}">

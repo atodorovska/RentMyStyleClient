@@ -13,13 +13,14 @@ export class SearchComponent implements OnInit {
 
   login: Login = null;
   items: Item[] = [];
+  price: number;
 
   constructor(private loginsService: LoginsService,
               private itemsService: ItemsService) { }
 
   ngOnInit() {
     this.getLogin();
-    this.getItems();
+    this.getAllItems();
   }
 
 
@@ -27,8 +28,30 @@ export class SearchComponent implements OnInit {
     this.loginsService.getLogin().subscribe(result => this.login = result);
   }
 
-  getItems() {
-    //  this is the way all work, except that price is NUMBER !!!
-    this.itemsService.getItemsBySize('M').subscribe(result => this.items = result);
+  getAllItems() {
+    this.itemsService.getItems().subscribe(res=> this.items = res);
   }
+
+  search(brand:string, size:string){
+    if(brand != undefined){
+      this.itemsService.getItemsByBrand(brand).subscribe(res=> this.items = res);
+      return;
+    }
+
+    if(size != undefined){
+      this.itemsService.getItemsBySize(size).subscribe(res=> this.items = res);
+      return;
+    }
+
+    if(this.price != undefined){
+      this.itemsService.getItemsByPrice(this.price).subscribe(res=> this.items = res);
+      return;
+    }
+  }
+
+  getByColor(color: string){
+    this.itemsService.getItemsByColor(color).subscribe(res=> this.items = res);
+  }
+
+
 }
